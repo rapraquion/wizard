@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import Divider from '@material-ui/core/Divider';
+import Container from '@material-ui/core/Container';
+
+import Onboarding from './components/Onboarding'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="lg">
+      <Router>
+        <header>
+          <h1>Wizard</h1>
+        </header>
+        <Divider variant="middle" />
+        <main>
+          <Switch>
+            <Route path="/onboarding">
+              <Onboarding />
+            </Route>
+          </Switch>
+        </main>
+      </Router>
+    </Container>
   );
 }
 
